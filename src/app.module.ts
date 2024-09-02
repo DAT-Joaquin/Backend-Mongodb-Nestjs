@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './user.controller';
+import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     // MongooseModule.forRoot(
@@ -20,6 +21,7 @@ import { UserController } from './user.controller';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    UsersModule,
   ],
   controllers: [AppController, UserController],
   providers: [AppService],
