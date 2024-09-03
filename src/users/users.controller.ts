@@ -32,7 +32,8 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    // const id = req.params.id
+    return this.usersService.findOne(id);
   }
 
   @Patch(':id')
