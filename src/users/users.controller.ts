@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';
 
@@ -16,11 +17,12 @@ export class UsersController {
 
   @Post()
   create(
-    @Body('email') email: string,
-    @Body('password') password: string,
-    @Body('name') name: string,
+    // @Body('email') email: string,  = req.body.email
+    // @Body('password') password: string, = req.body.password
+    // @Body('name') name: string, = req.body.name
+    @Body() createUserDto: CreateUserDto, // = req.body
   ) {
-    return this.usersService.create(email, password, name);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()
